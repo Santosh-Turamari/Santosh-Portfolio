@@ -1,4 +1,3 @@
-// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -6,8 +5,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
-
-        // Update active class
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.classList.remove('active');
         });
@@ -35,23 +32,20 @@ TxtType.prototype.tick = function() {
   } else {
     this.txt = fullTxt.substring(0, this.txt.length + 1);
   }
-
   this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
   var that = this;
-  var delta = 200 - Math.random() * 100; // Typing speed: 100–200ms
-
+  var delta = 200 - Math.random() * 100; 
   if (this.isDeleting) {
-    delta = this.deleteSpeed; // Use custom deleteSpeed
+    delta = this.deleteSpeed; 
   }
 
   if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period; // Pause when text is fully typed
+    delta = this.period; 
     this.isDeleting = true;
   } else if (this.isDeleting && this.txt === '') {
     this.isDeleting = false;
-    this.loopNum++; // Move to next string
-    delta = 500; // Delay before typing next string
+    this.loopNum++; 
+    delta = 500; 
   }
 
   setTimeout(function() {
@@ -60,28 +54,22 @@ TxtType.prototype.tick = function() {
 };
 
 window.onload = function() {
-  // Target element with id="type"
   var element = document.getElementById('type');
   if (element) {
-    // Configuration object
     var options = {
       strings: ["Intern @ VCTI", "Software Developer", "Student @ KLS VDIT" ,"FrontEnd Developer"],
       period: 2000,
       deleteSpeed: 50
     };
-    // Initialize TxtType with the options
     new TxtType(element, options.strings, options.period, options.deleteSpeed);
   }
 
-  // Inject CSS for the cursor
   var css = document.createElement("style");
   css.type = "text/css";
   css.innerHTML = "#type > .wrap { border-right: 0.08em solid #fff }";
   document.body.appendChild(css);
 };
 
-
-// Mobile menu toggle
 const mobileMenu = document.querySelector('.mobile-menu');
 const navMenu = document.querySelector('nav ul');
 
@@ -91,7 +79,7 @@ mobileMenu.addEventListener('click', () => {
         '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
 });
 
-// Close mobile menu when clicking a link
+
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -99,29 +87,27 @@ document.querySelectorAll('nav ul li a').forEach(link => {
     });
 });
 
-// Form submission
+
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Get form values
+      
         const name = this.querySelector('input[type="text"]').value;
         const email = this.querySelector('input[type="email"]').value;
         const subject = this.querySelector('input[placeholder="Subject"]').value;
         const message = this.querySelector('textarea').value;
 
-        // Here you would typically send the form data to a server
-        // For this example, we'll just log it and show an alert
+       
         console.log({ name, email, subject, message });
         alert('Thank you for your message! I will get back to you soon.');
 
-        // Reset form
         this.reset();
     });
 }
 
-// Active navigation link highlighting
+
 const sections = document.querySelectorAll('section');
 const navItems = document.querySelectorAll('nav ul li a');
 
@@ -145,7 +131,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add subtle animations to elements when they come into view
+
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -169,7 +155,7 @@ document.querySelectorAll('.skill-category, .project-card, .education-card').for
     card.classList.add('animate-in');
 });
 
-// Add animation class when element is in view
+
 document.addEventListener('DOMContentLoaded', function () {
     const animatedElements = document.querySelectorAll('.skill-category, .project-card, .education-card');
 
