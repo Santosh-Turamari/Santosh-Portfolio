@@ -57,7 +57,7 @@ window.onload = function() {
   var element = document.getElementById('type');
   if (element) {
     var options = {
-      strings: ["Intern @ VCTI", "Software Developer", "Student @ KLS VDIT" ,"FrontEnd Developer"],
+      strings: ["Intern @ VCTI", "Software Developer", "Full Stack Developer", "FrontEnd Developer"],
       period: 2000,
       deleteSpeed: 50
     };
@@ -166,3 +166,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 200);
     });
 });
+
