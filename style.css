@@ -477,6 +477,11 @@ nav ul li a.active::after {
     color: var(--text-gray);
 }
 
+.timeline-content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.2);
+}
+
 /* Education  */
 .education {
     padding: 100px 0;
@@ -731,3 +736,4 @@ footer {
         padding: 30px 20px;
     }
 }
+
